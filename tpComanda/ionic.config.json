@@ -1,7 +1,0 @@
-{
-  "name": "tpComanda",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
