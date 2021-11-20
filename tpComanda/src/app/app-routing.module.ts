@@ -4,8 +4,13 @@ import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
+      path: '',
+      redirectTo: 'splash',
+      pathMatch: 'full'
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   },
   {
     path: 'login',
@@ -94,7 +99,12 @@ const routes: Routes = [
   {
     path: 'rechazo-cliente',
     loadChildren: () => import('./paginas/rechazo-cliente/rechazo-cliente.module').then( m => m.RechazoClientePageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   }
+
 
 ];
 @NgModule({

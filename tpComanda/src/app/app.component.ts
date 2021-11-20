@@ -1,6 +1,7 @@
 import { Component ,OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+//import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { timer } from 'rxjs';
@@ -25,22 +26,29 @@ export class AppComponent  implements OnInit{
   clase = 'candado ld ld-blur-in';
 
   constructor(
+    
     private platform: Platform,
-    private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private auth: AuthService,
     private roure: Router
   ) {
-    this.initializeApp();
+    //this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      SplashScreen.hide();
 
 
-      timer(5000).subscribe(() => this.showSplash = false);
+     // timer(5000).subscribe(() => this.showSplash = false);
+      
+      setTimeout(()=>{
+        this.showSplash = false;
+        this.roure.navigateByUrl('login',{replaceUrl:true});
+
+      },3500);
+
     });
   }
 
@@ -52,9 +60,10 @@ export class AppComponent  implements OnInit{
     // Android will just grant without prompting
     PushNotifications.requestPermissions().then( result => {
       if (result.receive==='granted') {
+        
         // Register with Apple / Google to receive push via APNS/FCM
-        PushNotifications.register();
-        this.addListeners();
+        //PushNotifications.register();
+        //this.addListeners();
       } else {
         // Show some error
       }
