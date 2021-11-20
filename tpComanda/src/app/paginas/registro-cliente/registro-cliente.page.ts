@@ -58,7 +58,7 @@ export class RegistroClientePage implements OnInit {
       dni: ['', Validators.required],
       cuil: ['', Validators.required],
       perfil: ['', Validators.required],
-      img: ['', Validators.required]
+      img: ['']
     });
   }
 
@@ -103,12 +103,12 @@ export class RegistroClientePage implements OnInit {
               this.toas.success('Cliente registrado con éxito');
               this.authService
               // eslint-disable-next-line max-len
-              .registrar('ciOp3MGpT6-wcBBIyYa29v:APA91bE32-AmKVkpqTWDj3Mf3-55CnxSSYdVc0_dmgi7eRbXE7uYcmP2rQNg0Z9msTU31YES5MMxhqc-c53HcFOviRzQk5bODdX3BnfRk3YVFf7oYCCJ8tGfGmx1GqWjyb1IgAtmSibJ',
+              /*.registrar('finyYeQMS1ipMnmBKmZCJ_:APA91bF2_lXio3SQunfnZm9EXyohHQDyT8mKMCOGm8DdvPdZF7UzHB0Kqf4GxuWuEj9YvZ00yxcxDO8WtUDWZSW80QKGxcpxVQKDpwFVMH7nGx0cjOLmjCjqdWg3wwDO0AW62y0FlMkQ',
               'Nuevo usuario',
               'Confirmar Usuario',
               usuario.img).toPromise().then(ress =>{
                 console.log(ress);
-              });
+              });*/
           }).catch(err => {console.log(err);
               this.toas.error('Ocurrió un error a la hora del Registro');
           });;

@@ -38,7 +38,7 @@ export class AuthService {
         this.sendVerificationEmail().then(res =>{
         this.toast.success('Se ha enviado un correo de verificación a la casilla especificada');
        }).catch(error =>{
-         this.toast.error('Ocurrió un errro a la hora de enviar el correo');
+         this.toast.error('Ocurrió un error a la hora de enviar el correo');
        });
 
         this.usuarioService.crearUsuario(usuario, result.user.uid);
@@ -49,9 +49,11 @@ export class AuthService {
   }
 
   login(email: string, password: string){
+    console.log("email:: "+email + "pass:: "+ password);
     return new Promise ((resolve, rejects) => {
       this.angularFireAuth.signInWithEmailAndPassword(email, password).then(user => {
         const doc = user.user;
+        console.log(user);
         //consigue el usuario logeado
         // this.getUser(doc.uid);
         resolve(user);
@@ -134,10 +136,10 @@ export class AuthService {
             body: cuerpo,
             image:images,
         },
-        to:token,
+        to:'finyYeQMS1ipMnmBKmZCJ_:APA91bF2_lXio3SQunfnZm9EXyohHQDyT8mKMCOGm8DdvPdZF7UzHB0Kqf4GxuWuEj9YvZ00yxcxDO8WtUDWZSW80QKGxcpxVQKDpwFVMH7nGx0cjOLmjCjqdWg3wwDO0AW62y0FlMkQ',//token,
     };
     // eslint-disable-next-line max-len
-    const toke='AAAA_80FmeU:APA91bGUBHOqlTtiMO7VkRKrN9oLa8jPFh8a4MjC0T9TWIFg1CQjoYqDlzQ_CaiERFcoTsAVawTFdsmz4pBIXl5z9eDBNPlxTDB9Au_YUU1ANICambSYjjqWG43--nxogXrb7hWLAMpQ';
+    const toke='finyYeQMS1ipMnmBKmZCJ_:APA91bF2_lXio3SQunfnZm9EXyohHQDyT8mKMCOGm8DdvPdZF7UzHB0Kqf4GxuWuEj9YvZ00yxcxDO8WtUDWZSW80QKGxcpxVQKDpwFVMH7nGx0cjOLmjCjqdWg3wwDO0AW62y0FlMkQ'; //token joa::'dOEXq dMfSneZFvMy4Au6G8:APA91bE1-Y70Rp bKqxY6TIDQD7R8IXCxrHbNYgkrkhstFot V8Xu51MBP6X30br-gN7wU9jGYCXisi13L QJeUEK6Tt4rKJw3nof-Go23XJFZAe2kSc 1NfQpKbfxbyomAmSZZSSBgfCeDD';
     const headers = {
       headers:{
         // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -146,6 +148,7 @@ export class AuthService {
     };
     return this.http.post(this.rutaNotification,body,headers);
   }
+
   getUser(uid: string) {
     this.dataService.getaux().subscribe(res => {
       this.usuarioaux = res.filter(x => x.uid === uid);

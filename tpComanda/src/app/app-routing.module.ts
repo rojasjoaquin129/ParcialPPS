@@ -13,8 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./paginas/home/home.module').then( m => m.HomePageModule),
-    canActivate:[LoginGuard]
+    loadChildren: () => import('./paginas/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'registro-adm',

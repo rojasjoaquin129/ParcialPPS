@@ -62,7 +62,7 @@ export class HomePage implements OnInit {
     this.auth.getCurrentUserMail().then(res =>{
       this.data.getUserByUid(res.uid).subscribe(us =>{
         this.user = us;
-
+        console.log(this.user);
       });
     });
   }
@@ -134,13 +134,13 @@ export class HomePage implements OnInit {
   }
   prueba()
   {
-    console.log(this.auth.getCurrentUserId());
+    //console.log(this.auth.getCurrentUserId());
     // eslint-disable-next-line max-len
-    this.auth.registrar('ciOp3MGpT6-wcBBIyYa29v:APA91bE32-AmKVkpqTWDj3Mf3-55CnxSSYdVc0_dmgi7eRbXE7uYcmP2rQNg0Z9msTU31YES5MMxhqc-c53HcFOviRzQk5bODdX3BnfRk3YVFf7oYCCJ8tGfGmx1GqWjyb1IgAtmSibJ',
+    /*this.auth.registrar('finyYeQMS1ipMnmBKmZCJ_:APA91bF2_lXio3SQunfnZm9EXyohHQDyT8mKMCOGm8DdvPdZF7UzHB0Kqf4GxuWuEj9YvZ00yxcxDO8WtUDWZSW80QKGxcpxVQKDpwFVMH7nGx0cjOLmjCjqdWg3wwDO0AW62y0FlMkQ',
     'Nuevo Cliente', this.user.mail + 'Solicita una mesa',
     'https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2019/06/25/15614775255199.jpg').toPromise().then(res =>{
-    console.log(res);
-    });
+    //console.log(res);
+    });*/
   }
 
   logut()
@@ -159,11 +159,11 @@ export class HomePage implements OnInit {
 
             this.toast.success('Solicitud de Mesa registrada con éxito');
             // eslint-disable-next-line max-len
-            this.auth.registrar('ciOp3MGpT6-wcBBIyYa29v:APA91bE32-AmKVkpqTWDj3Mf3-55CnxSSYdVc0_dmgi7eRbXE7uYcmP2rQNg0Z9msTU31YES5MMxhqc-c53HcFOviRzQk5bODdX3BnfRk3YVFf7oYCCJ8tGfGmx1GqWjyb1IgAtmSibJ'
+            /*this.auth.registrar('finyYeQMS1ipMnmBKmZCJ_:APA91bF2_lXio3SQunfnZm9EXyohHQDyT8mKMCOGm8DdvPdZF7UzHB0Kqf4GxuWuEj9YvZ00yxcxDO8WtUDWZSW80QKGxcpxVQKDpwFVMH7nGx0cjOLmjCjqdWg3wwDO0AW62y0FlMkQ'
             ,'Nuevo Cliente', this.user.mail + 'Solicita una mesa',
             'https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2019/06/25/15614775255199.jpg').toPromise().then(ress =>{
-              console.log(ress);
-            });
+              //console.log(ress);
+            });*/
           });
         } else {
           this.toast.error('Error al ingresar al local.');
@@ -174,14 +174,14 @@ export class HomePage implements OnInit {
         // this.infoReserva();
         this.toast.error(error);
 
-        console.log('Hubo un error', error);
+        //console.log('Hubo un error', error);
       }
     );
   }
 
   sentarse()
   {
-    console.log(this.user.mesa.codigo);
+    //console.log(this.user.mesa.codigo);
     this.barcodeScanner.scan().then(
       barcodeData => {
         const barcodeText = barcodeData.text;
@@ -197,7 +197,7 @@ export class HomePage implements OnInit {
         // this.infoReserva();
         this.toast.error(error);
 
-        console.log('Hubo un error', error);
+        //console.log('Hubo un error', error);
       }
     );
   }
@@ -219,7 +219,7 @@ export class HomePage implements OnInit {
         // this.infoReserva();
         this.toast.error(error);
 
-        console.log('Hubo un error', error);
+        //console.log('Hubo un error', error);
       }
     );
 
