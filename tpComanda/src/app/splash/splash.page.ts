@@ -15,14 +15,14 @@ export class SplashPage implements OnInit {
   constructor(private platform: Platform,
               private statusBar: StatusBar,
               private auth: AuthService,
-              private roure: Router) { 
+              private roure: Router) {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       SplashScreen.hide();
 
 
      // timer(5000).subscribe(() => this.showSplash = false);
-      
+
       setTimeout(()=>{
         this.roure.navigateByUrl('login',{replaceUrl:true});
 
@@ -32,6 +32,7 @@ export class SplashPage implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

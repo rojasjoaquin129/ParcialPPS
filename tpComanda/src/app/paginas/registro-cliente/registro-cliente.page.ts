@@ -102,13 +102,12 @@ export class RegistroClientePage implements OnInit {
               //console.log("llega bien perri");
               this.toas.success('Cliente registrado con éxito');
               this.authService
-              // eslint-disable-next-line max-len
-              /*.registrar('finyYeQMS1ipMnmBKmZCJ_:APA91bF2_lXio3SQunfnZm9EXyohHQDyT8mKMCOGm8DdvPdZF7UzHB0Kqf4GxuWuEj9YvZ00yxcxDO8WtUDWZSW80QKGxcpxVQKDpwFVMH7nGx0cjOLmjCjqdWg3wwDO0AW62y0FlMkQ',
+              .registrar('4aeca4d9-64e7-43f1-986f-f84b301c36c9',
               'Nuevo usuario',
               'Confirmar Usuario',
               usuario.img).toPromise().then(ress =>{
                 console.log(ress);
-              });*/
+              });
           }).catch(err => {console.log(err);
               this.toas.error('Ocurrió un error a la hora del Registro');
           });;

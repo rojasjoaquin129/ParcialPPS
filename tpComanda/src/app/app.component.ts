@@ -26,7 +26,7 @@ export class AppComponent  implements OnInit{
   clase = 'candado ld ld-blur-in';
 
   constructor(
-    
+
     private platform: Platform,
     private statusBar: StatusBar,
     private auth: AuthService,
@@ -36,41 +36,43 @@ export class AppComponent  implements OnInit{
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      SplashScreen.hide();
+    // this.platform.ready().then(() => {
+    //   this.statusBar.styleDefault();
+    //   SplashScreen.hide();
 
 
-     // timer(5000).subscribe(() => this.showSplash = false);
-      
-      setTimeout(()=>{
-        this.showSplash = false;
-        this.roure.navigateByUrl('login',{replaceUrl:true});
+    //  // timer(5000).subscribe(() => this.showSplash = false);
+    //   setTimeout(()=>{
+    //     this.showSplash = false;
+    //     this.roure.navigateByUrl('login',{replaceUrl:true});
 
-      },3500);
+    //   },3500);
 
-    });
+    // });
   }
 
   ngOnInit() {
-    if(this.platform.is('capacitor')){
-      console.log('Initializing HomePage');
-    // Request permission to use push notifications
-    // iOS will prompt user and return if they granted permission or not
-    // Android will just grant without prompting
-    PushNotifications.requestPermissions().then( result => {
-      if (result.receive==='granted') {
-        
-        // Register with Apple / Google to receive push via APNS/FCM
-        //PushNotifications.register();
-        //this.addListeners();
-      } else {
-        // Show some error
-      }
-    });
-    }else{
-      console.log('pushNotifications.RequiestPeromission() -> no es movil');
-    }
+
+
+    this.auth.configuracionInicial();
+    // if(this.platform.is('capacitor')){
+    //   console.log('Initializing HomePage');
+    // // Request permission to use push notifications
+    // // iOS will prompt user and return if they granted permission or not
+    // // Android will just grant without prompting
+    // PushNotifications.requestPermissions().then( result => {
+    //   if (result.receive==='granted') {
+
+    //     // Register with Apple / Google to receive push via APNS/FCM
+    //     //PushNotifications.register();
+    //     //this.addListeners();
+    //   } else {
+    //     // Show some error
+    //   }
+    // });
+    // }else{
+    //   console.log('pushNotifications.RequiestPeromission() -> no es movil');
+    // }
   }
 
 
