@@ -38,7 +38,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     EncuestaComponent,
     DetalleCuentaComponent,
     VerPedidoComponent,
-    RespuestaMozoComponent,
+    RespuestaMozoComponent
   ],
   entryComponents: [PedidoComponent],
   imports: [

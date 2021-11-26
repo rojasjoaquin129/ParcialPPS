@@ -44,14 +44,21 @@ export class DetalleCuentaComponent implements OnInit {
   }
 
   pedirCuenta() {
+    //agregado por sofia 24/11
+    let propina=0;
+    if(this.form.value.atencion>0)
+    {
+        propina=(this.pedido.total*this.form.value.atencion)/100;
+    }
 
-    this.pedidoService.pedirCuenta(this.pedido.uid, this.form.value.atencion, this.subMonto).then(res =>{
+    this.pedidoService.pedirCuenta(this.pedido.uid, propina, this.subMonto).then(res =>{
       this.presentToast('Ha pedido la cuenta');
       this.closeModal();
     });
   }
   medirAtencion(){
-
+    //agregado por sofia 24/11
+    this.ingresarTest();
   }
 
   ingresarTest(){
@@ -77,6 +84,13 @@ export class DetalleCuentaComponent implements OnInit {
             this.toast.error('Error  No es un QR de Propina');
             break;
         }
+        let propina=0;
+        if(this.form.value.atencion>0)
+        {
+            propina=(this.pedido.total*this.form.value.atencion)/100;
+        }
+
+        this.subMonto=this.pedido.total-this.pedido.descuento+propina;
 
       },error=>{
         this.toast.error('Hubo un error al leer el QR');

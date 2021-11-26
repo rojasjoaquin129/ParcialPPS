@@ -79,4 +79,18 @@ export class FotoService {
       });
     });
   }
+
+  uploadPhotoEncuesta(info, encuesta) {
+    return new Promise ((resolve, rejects) => {
+      this.dataServ.uploadToStorage(info)
+      .then(res => {
+        res.ref.getDownloadURL()
+          .then(url => {
+            this.dataServ.storeInfoDatabaseEncuesta(res.metadata, url, encuesta);
+            resolve(url);
+          })
+          .catch((err) => rejects(err));
+      });
+    });
+  }
 }

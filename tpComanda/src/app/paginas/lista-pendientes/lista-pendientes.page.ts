@@ -51,6 +51,7 @@ export class ListaPendientesPage implements OnInit {
        {
           lugar = true;
           this.auth.updateEstadoMesa(this.mesas[index].numero,1).then(res =>{
+            console.log("vuelve de updateEstadoMesa");
              this.auth.updateMesaEstadoUsuario(user.uid,3,this.mesas[index]).then(resf =>{
               // eslint-disable-next-line max-len
               this.auth.registrar('fd813fef-32ec-434a-b5aa-df71d154e72e',

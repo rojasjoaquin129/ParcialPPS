@@ -12,6 +12,7 @@ import { Usuario } from 'src/app/clases/usuario';
 
 import { ToastService } from 'src/app/servicios/toast.service';
 import { EncuestaService } from 'src/app/servicios/encuesta.service';
+import { EncuestaComponent } from 'src/app/componentes/encuesta/encuesta.component';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,9 @@ export class HomePage implements OnInit {
   listaEncuestas: any=[];
   unaUnicaVez=false;
   clienteIngreso=false;
+  listaUsuariosEnEspera:any;
+
+  pedido: any;
   // eslint-disable-next-line max-len
   // constructor(public router: Router,private auth:AuthService,public toasControl:ToastController, private barcodeScanner:ScanerService, private toast:ToastrService, private data:DataService) {}
 
@@ -63,11 +67,11 @@ export class HomePage implements OnInit {
     console.log(encuesta?.pedido);
   }
   mostremosEncuestas(){
-    if(!this.unaUnicaVez){
+    /*if(!this.unaUnicaVez){
       const remover=this.listaEncuestas.splice(0,3);
       console.log(remover);
       this.unaUnicaVez=true;
-    }
+    }*/
     console.log(this.listaEncuestas);
     this.mostrarEncuenstas=true;
   }
@@ -77,6 +81,7 @@ export class HomePage implements OnInit {
     if(this.user.estados===1){
       this.clienteIngreso=false;
     }
+    console.log(this.user);
     // this.auth.getCurrentUserMail().then(res =>{
     //   this.data.getUserByUid(res.uid).subscribe(us =>{
     //     this.user = us;
@@ -84,6 +89,10 @@ export class HomePage implements OnInit {
     //   })
     // })
 
+    this.data.getUsuarios().subscribe(res=>{
+      this.listaUsuariosEnEspera = res.filter(ress => ress.estado === 2 && ress.perfil === 'Cliente');
+      console.log(this.listaUsuariosEnEspera);
+    });
   }
 
   ionViewWillEnter()
@@ -144,7 +153,20 @@ export class HomePage implements OnInit {
       case 'chats':
          this.router.navigate(['/chats']);
         break;
-
+      case 'encuesta':
+        this.modal.create({
+          component: EncuestaComponent,
+          componentProps: {
+            pedido: this.user.pedido,
+            usuario: this.user
+          }
+        }).then((modald) => {
+          //abre el modal si hay por lo menos un item seleccionado
+          if(true) {
+            modald.present();
+          }
+        });
+        break;
     }
   }
 
@@ -184,6 +206,9 @@ export class HomePage implements OnInit {
         const barcodeText=barcodeData.text;
         if(barcodeText === 'laComanda'){
           this.clienteIngreso=true;
+          //ponemos al usuario en lista de espera. SR 24/11
+          //this.user.estado=2;
+          this.ingresar();
         } else{
           this.toast.error('Error al ingresar al local, No es el QR de entrada');
         }

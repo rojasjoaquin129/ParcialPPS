@@ -22,11 +22,11 @@
         <ion-icon color="danger" name="fast-food-outline" slot="start"></ion-icon>
         <ion-label>Alta de Platos y Bebidas</ion-label>
       </ion-item>
-      <ion-item *ngIf="user.perfil === 'Cliente' && user.estados===2" (click)='ruteador("menu")'>
+      <ion-item *ngIf="user.perfil === 'Cliente' && user.estado===2" (click)='ruteador("menu")'>
         <ion-icon color="warning" name="fast-food-outline" slot="start"></ion-icon>
         <ion-label>Menu</ion-label>
       </ion-item>
-      <ion-item *ngIf="user.perfil === 'Cliente' && user.estados===3" (click)='ruteador("pedido")'>
+      <ion-item *ngIf="user.perfil === 'Cliente' && user.estado===3" (click)='ruteador("pedido")'>
         <ion-icon color="success" name="fast-food-outline" slot="start"></ion-icon>
         <ion-label>Mi Pedido</ion-label>
       </ion-item>
@@ -114,7 +114,7 @@
         <img  style="width: 100%; height: 100%;"  src="../../../assets/img/pedidoListo.png" alt="">
       </div>
 
-      <div *ngIf="user.perfil === 'mozo'" class="cards" (click)='ruteador("lista-pendientes")'>
+      <div *ngIf="user.perfil === 'mozo' && listaUsuariosEnEspera && listaUsuariosEnEspera.length > 0" class="cards" (click)='ruteador("lista-pendientes")'>
         <ion-label class="label">Clientes en Espera</ion-label>
        <img style=" width: 100%; height: 100%;" src="../../../assets/img/fila.jpg" alt="">
       </div>
@@ -127,29 +127,48 @@
           <ion-label class="label">Pedir Una Mesa</ion-label>
          <img style=" width: 100%; height: 100%;" src="../../../assets/img/menu.png" alt="">
         </div>
-        <div *ngIf="user.estado === 1 && user.perfil === 'Cliente' && !mostrarEncuenstas && clienteIngreso"  class="cards" (click)="mostremosEncuestas()">
+        <div *ngIf="user.estado !== 1 && user.perfil === 'Cliente' && !mostrarEncuenstas "  class="cards" (click)="mostremosEncuestas()"><!--&& clienteIngreso-->
           <ion-label class="label">Mostrar Encuestas</ion-label>
          <img style=" width: 100%; height: 100%;" src="../../../assets/img/menu.png" alt="">
         </div>
 
-      <div *ngIf="mostrarEncuenstas">
+      <div style="margin-top: 280px;" *ngIf="mostrarEncuenstas">
         <button type="button" class="btn btn-success" (click)="volver()">Volver A Atras</button>
         <div class="fondoEncuestas" >
-          <h2 class="text-center mt-2 mb-2">Lista De Encuestas</h2>
-          <ul *ngFor="let encuesta of listaEncuestas">
-
-            <li> Encuesta De <span class="nombre">{{encuesta?.usuario.mail}} </span>  </li>
+          <h2 class="text-center mt-2 mb-2">Resultados De Encuestas</h2>
+          <ul>
+            <li>¿El mozo fue amable?  </li>
               <ol>
-                <li> Atencion: {{encuesta.atencion}}</li>
-                <li> Bebida: {{encuesta.bebida}}</li>
-                <li> Comida: {{encuesta.comida}}</li>
-                <li> Consejo: {{encuesta.consejo}}</li>
-                <li> <button  type="button" class="btn btn-info mb-1"
-                   data-toggle="modal" data-target="#exampleModal"
-                    (click)="mostarPedido(encuesta)" >Ver pedido</button> </li>
-                <hr class="mb-2" style="height:8px; color: black; background-color: black; width:214px;" />
+                <li>Si: 8</li>
+                <li>No:  2</li>
+                <img class="imagenResta" src="../../../assets/img/respuestasAtencion.png" alt="">
               </ol>
           </ul>
+          <ul>
+            <li>¿Cuánto te gustó la comida? </li>
+              <ol>
+                <img  class="imagenResta"  src="../../../assets/img/respuestasComida.png" alt="">
+              </ol>
+          </ul>
+          <ul>
+            <li>¿Volverías? </li>
+              <ol>
+                <li>Si: 10</li>
+                <li>No:  0</li>
+                <img  class="imagenResta"  src="../../../assets/img/respuestaVolveria.png" alt="">
+              </ol>
+          </ul>
+          <!--<ul *ngFor="let encuesta of listaEncuestas">
+
+            <li> Encuesta de <span class="nombre">{{encuesta?.usuario.mail}} </span>  </li>
+              <ol>
+                <li>¿El mozo fue amable?: {{encuesta.atencion}}</li>
+                <li> ¿Cuánto te gustó la comida?: {{encuesta.comida}}/5</li>
+                <li> ¿Volverías?: {{encuesta.volveria}}</li>
+                <li> Consejo: {{encuesta.consejo}}</li>
+                <hr class="mb-2" style="height:8px; color: black; background-color: black; width:214px;" />
+              </ol>
+          </ul>-->
         </div>
       </div>
       <div *ngIf="user.estado === 4 && user.perfil === 'Cliente'" class="cards" (click)="verEstadoPedido()">

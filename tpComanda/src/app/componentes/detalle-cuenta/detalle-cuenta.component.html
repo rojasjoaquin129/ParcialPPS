@@ -35,16 +35,16 @@
             <ion-label>Mesa: {{pedido.mesa}}</ion-label>
           </ion-item>
           <ion-item>
-            <ion-label>Total: <strong style="color: rgb(19, 139, 219);">${{pedido.total}}</strong> </ion-label>
+            <ion-label>Total: <strong style="color: rgb(2, 55, 90);">${{pedido.total}}</strong> </ion-label>
           </ion-item>
           <ion-item>
-            <ion-label>Propina: <strong style="color: rgb(247, 243, 43);">${{form.value.atencion}}</strong> </ion-label>
+            <ion-label>Propina: <strong style="color: rgb(136, 134, 2);">{{form.value.atencion}}%</strong> </ion-label>
           </ion-item>
           <ion-item>
-            <ion-label>Descuento: <strong style="color: rgb(196, 15, 15);">{{pedido.descuento | descuentoComponente}}</strong> </ion-label>
+            <ion-label>Descuento: <strong style="color: rgb(126, 3, 3);">{{pedido.descuento | descuentoComponente}}</strong> </ion-label>
           </ion-item>
           <ion-item>
-            <ion-label> Final: <strong style="color: rgb(39, 185, 39);">${{subMonto}}</strong> </ion-label>
+            <ion-label> Final: <strong style="color: rgb(45, 155, 45);">${{subMonto}}</strong> </ion-label>
           </ion-item>
         </ion-item-group>
 

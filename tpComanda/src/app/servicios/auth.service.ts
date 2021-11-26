@@ -113,7 +113,8 @@ export class AuthService {
 
   updateEstadoMesa(mesa: any,estados: number)
   {
-    return  this.db.collection('mesas').doc(mesa).update({
+    console.log("entra a updateEstadoMesa");
+    return  this.db.collection('mesas1').doc(mesa).update({
       estado: estados,
     });
   }
