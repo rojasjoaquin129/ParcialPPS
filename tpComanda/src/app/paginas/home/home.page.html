@@ -127,7 +127,7 @@
           <ion-label class="label">Pedir Una Mesa</ion-label>
          <img style=" width: 100%; height: 100%;" src="../../../assets/img/menu.png" alt="">
         </div>
-        <div *ngIf="user.estado !== 1 && user.perfil === 'Cliente' && !mostrarEncuenstas "  class="cards" (click)="mostremosEncuestas()"><!--&& clienteIngreso-->
+        <div *ngIf="user.estado === 2 && user.perfil === 'Cliente' && !mostrarEncuenstas "  class="cards" (click)="mostremosEncuestas()"><!--&& clienteIngreso-->
           <ion-label class="label">Mostrar Encuestas</ion-label>
          <img style=" width: 100%; height: 100%;" src="../../../assets/img/menu.png" alt="">
         </div>
