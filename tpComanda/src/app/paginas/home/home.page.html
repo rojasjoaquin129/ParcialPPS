@@ -131,34 +131,7 @@
           <ion-label class="label">Mostrar Encuestas</ion-label>
          <img style=" width: 100%; height: 100%;" src="../../../assets/img/menu.png" alt="">
         </div>
-
-      <div style="margin-top: 280px;" *ngIf="mostrarEncuenstas">
-        <button type="button" class="btn btn-success" (click)="volver()">Volver A Atras</button>
-        <div class="fondoEncuestas" >
-          <h2 class="text-center mt-2 mb-2">Resultados De Encuestas</h2>
-          <ul>
-            <li>¿El mozo fue amable?  </li>
-              <ol>
-                <li>Si: 8</li>
-                <li>No:  2</li>
-                <img class="imagenResta" src="../../../assets/img/respuestasAtencion.png" alt="">
-              </ol>
-          </ul>
-          <ul>
-            <li>¿Cuánto te gustó la comida? </li>
-              <ol>
-                <img  class="imagenResta"  src="../../../assets/img/respuestasComida.png" alt="">
-              </ol>
-          </ul>
-          <ul>
-            <li>¿Volverías? </li>
-              <ol>
-                <li>Si: 10</li>
-                <li>No:  0</li>
-                <img  class="imagenResta"  src="../../../assets/img/respuestaVolveria.png" alt="">
-              </ol>
-          </ul>
-          <!--<ul *ngFor="let encuesta of listaEncuestas">
+          <ul *ngFor="let encuesta of listaEncuestas">
 
             <li> Encuesta de <span class="nombre">{{encuesta?.usuario.mail}} </span>  </li>
               <ol>
@@ -168,7 +141,7 @@
                 <li> Consejo: {{encuesta.consejo}}</li>
                 <hr class="mb-2" style="height:8px; color: black; background-color: black; width:214px;" />
               </ol>
-          </ul>-->
+          </ul>
         </div>
       </div>
       <div *ngIf="user.estado === 4 && user.perfil === 'Cliente'" class="cards" (click)="verEstadoPedido()">
@@ -200,7 +173,7 @@
        <!-- <div (click)="prueba()" style="background-color: rgb(141, 31, 31); height: auto;" *ngIf="user.estado == 2" class="cards" >
           <h2 style="color: white; font-size: 3rem;">Por favor Aguarde hasta que se le sea asignada una mesa.</h2>
        </div> -->
-       <div  style="background-color: rgb(141, 31, 31); height: auto;" *ngIf="user.estado === 2" class="cards" >
+       <div  style="background-color: rgb(141, 31, 31); height: auto;" *ngIf="user.estado === 2 && !mostrarEncuenstas" class="cards" >
         <h2 (click)="prueba()" style="color: white; font-size: 3rem;">Por favor Aguarde hasta que se le sea asignada una mesa.</h2>
         <br>
      </div>

@@ -31,12 +31,12 @@ export class ListaPedidosPage implements OnInit {
       if (index > -1) {
         this.lista.splice(index, 1);
       }
-        this.auth.registrar('4aeca4d9-64e7-43f1-986f-f84b301c36c9',
+        this.auth.registrar('fd813fef-32ec-434a-b5aa-df71d154e72e',
         'Nueva Comida', 'Solicita la  mesa N° '+ item.mesa,
         'https://images.clarin.com/2019/11/27/las-minutas-son-la-opcion___9YsE7sRJ_340x340__1.jpg').toPromise().then(ress =>{
           console.log(ress);
         });
-        this.auth.registrar('4aeca4d9-64e7-43f1-986f-f84b301c36c9',
+        this.auth.registrar('fd813fef-32ec-434a-b5aa-df71d154e72e',
         'Nuevo Bebida',
         'Solicita la  mesa N° '+ item.mesa,
         'https://mercedesya.com/mya2018/images/biblioteca/800/00005362.jpg').toPromise().then(ress =>{

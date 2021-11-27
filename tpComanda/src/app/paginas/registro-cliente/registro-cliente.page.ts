@@ -102,7 +102,7 @@ export class RegistroClientePage implements OnInit {
               //console.log("llega bien perri");
               this.toas.success('Cliente registrado con éxito');
               this.authService
-              .registrar('4aeca4d9-64e7-43f1-986f-f84b301c36c9',
+              .registrar('fd813fef-32ec-434a-b5aa-df71d154e72e',
               'Nuevo usuario',
               'Confirmar Usuario',
               usuario.img).toPromise().then(ress =>{

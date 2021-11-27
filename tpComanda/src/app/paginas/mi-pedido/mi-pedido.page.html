@@ -47,34 +47,7 @@
       <ion-button *ngIf="pedido.estado === 6" (click)='salir()'>Retirarse</ion-button>
 
     </div>
-
-    <div style="margin-top: 80px;" *ngIf="mostrarEncuenstas">
-      <button type="button" class="btn btn-success" (click)="volver()">Volver A Atras</button>
-      <div class="fondoEncuestas" >
-        <h2 class="text-center mt-2 mb-2">Resultados De Encuestas</h2>
-        <ul>
-          <li>¿El mozo fue amable?  </li>
-            <ol>
-              <li>Si: 8</li>
-              <li>No:  2</li>
-              <img class="imagenResta" src="../../../assets/img/respuestasAtencion.png" alt="">
-            </ol>
-        </ul>
-        <ul>
-          <li>¿Cuánto te gustó la comida? </li>
-            <ol>
-              <img  class="imagenResta"  src="../../../assets/img/respuestasComida.png" alt="">
-            </ol>
-        </ul>
-        <ul>
-          <li>¿Volverías? </li>
-            <ol>
-              <li>Si: 10</li>
-              <li>No:  0</li>
-              <img  class="imagenResta"  src="../../../assets/img/respuestaVolveria.png" alt="">
-            </ol>
-        </ul>
-        <!--<ul *ngFor="let encuesta of listaEncuestas">
+        <ul *ngFor="let encuesta of listaEncuestas">
 
           <li> Encuesta de <span class="nombre">{{encuesta?.usuario.mail}} </span>  </li>
             <ol>
@@ -84,7 +57,7 @@
               <li> Consejo: {{encuesta.consejo}}</li>
               <hr class="mb-2" style="height:8px; color: black; background-color: black; width:214px;" />
             </ol>
-        </ul>-->
+        </ul>
       </div>
     </div>
 

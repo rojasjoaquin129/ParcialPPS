@@ -186,7 +186,7 @@ export class HomePage implements OnInit {
   prueba()
   {
     console.log(this.auth.getCurrentUserId());
-    this.auth.registrar('4aeca4d9-64e7-43f1-986f-f84b301c36c9',
+    this.auth.registrar('fd813fef-32ec-434a-b5aa-df71d154e72e',
     'Nuevo Cliente', this.user.mail + 'Solicita una mesa',
     'https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2019/06/25/15614775255199.jpg').toPromise().then(res =>{
     console.log(res);
@@ -223,7 +223,7 @@ export class HomePage implements OnInit {
   {
     this.auth.updateEstadoUsuario(this.user.uid,2).then(res =>{
       this.toast.success('Solicitud de Mesa registrada con éxito');
-      this.auth.registrar('4aeca4d9-64e7-43f1-986f-f84b301c36c9'
+      this.auth.registrar('fd813fef-32ec-434a-b5aa-df71d154e72e'
       ,'Nuevo Cliente', this.user.mail + 'Solicita una mesa',
       'https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2019/06/25/15614775255199.jpg').toPromise().then(ress =>{
       console.log(ress);

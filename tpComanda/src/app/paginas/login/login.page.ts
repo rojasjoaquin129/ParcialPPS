@@ -72,7 +72,7 @@ export class LoginPage implements OnInit {
 
   entrarAnonimo(){
     this.spiner = true;
-    this.authService.login('nialsande@gmail.com', '123456').then( res => {
+    this.authService.login('roumieusofia@hotmail.com', '123456').then( res => {
       this.router.navigate(['/home']);
       //this.spiner = false;
     }).catch(err => this.presentAlert(err));

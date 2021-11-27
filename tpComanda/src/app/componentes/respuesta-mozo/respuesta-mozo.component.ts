@@ -38,7 +38,7 @@ export class RespuestaMozoComponent implements OnInit {
     console.log('llega');
       this.cons.responderConsulta(this.consultaRecibida.id,this.mensaje,this.mozo).then(res=>{
         console.log('Se respondió bien');
-        this.auth.registrar('fd813fef-32ec-434a-b5aa-df71d154e72e',
+        this.auth.registrar('4aeca4d9-64e7-43f1-986f-f84b301c36c9',
         'Respuesta Mozo',
         this.mensaje,
         'https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2019/06/25/15614775255199.jpg').toPromise().then(ress =>{
